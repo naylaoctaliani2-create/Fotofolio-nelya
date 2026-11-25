@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neyla Octaliani – Portofolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav aria-label="Menu"><a href="#tentang">Tentang</a><a href="#sekolah">Sekolah</a><a href="#belajar">Belajar</a></nav>
+
+<header class="hero page" id="tentang">
+  <div class="wrap">
+    <div class="avatar">
+      
+      <div class="photo"><div><img src="foto/foto-neyla.jpg" alt="Foto Neyla Octaliani" onerror="this.remove();this.parentNode.textContent='NO'"></div></div>
+      <i class="spark p1">&#9829;</i><i class="spark p2">&#10022;</i><i class="spark p3">&#9829;</i><i class="spark p4">&#10022;</i><i class="spark p5">&#9825;</i><i class="spark p6">&#10047;</i>
+    </div>
+    <h1>Neyla Octaliani</h1>
+    <p class="role">Siswi kelas 10 PPLG yang sedang belajar jadi <b id="typed"></b></p>
+    <p class="sub">Kelas 10 PPLG di SMKN 1 Bangkinang, jurusan Pengembangan Perangkat Lunak dan Gim. Ini perjalanan sekolahku dari TK sampai SMK.</p>
+    <div class="btns"><a class="btn fill" href="#sekolah">Lihat perjalananku</a></div>
+  </div>
+</header>
+
+<section class="page" id="sekolah">
+  <div class="wrap">
+    <h2>Riwayat sekolah</h2>
+    <p class="lead">Semuanya di Bangkinang. Pilih jenjang atau geser kartunya.</p>
+    <div class="journey" id="journey">
+      <div class="stepper" role="tablist" aria-label="Jenjang sekolah">
+        <i class="track"><i id="trackFill"></i></i>
+        <button class="st" role="tab" data-i="0">TK</button>
+        <button class="st" role="tab" data-i="1">SD</button>
+        <button class="st" role="tab" data-i="2">SMP</button>
+        <button class="st" role="tab" data-i="3">SMK</button>
+      </div>
+      <article class="stage" id="stage" aria-live="polite">
+        <span class="big" id="sBig"></span>
+        <span class="badge" id="sBadge"></span>
+        <h3 id="sName"></h3>
+        <p class="lvl" id="sLvl"></p>
+        <p class="desc" id="sDesc"></p>
+        <div class="foot">
+          <button class="nav" id="prev" aria-label="Sebelumnya">&larr;</button>
+          <span id="sCount"></span>
+          <button class="nav" id="next" aria-label="Berikutnya">&rarr;</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="page" id="belajar">
+  <div class="wrap">
+    <h2>Yang sedang kupelajari</h2>
+    <p class="lead">Lagi seru-serunya belajar hal baru.</p>
+    <button class="learn" id="learn" aria-expanded="false">
+      <span class="emo">&#127802;</span>
+      <b>Membuat web portofolio</b>
+      <small>Ketuk untuk lihat ceritanya</small>
+      <em>Belajar merancang dan membuat website portofolio sendiri, dari susunan halaman sampai tampilannya.</em>
+    </button>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> Neyla Octaliani</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
