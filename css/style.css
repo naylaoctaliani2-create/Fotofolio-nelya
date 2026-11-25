@@ -1,0 +1,125 @@
+:root{
+  --bg:#160E1B; --glass:rgba(255,255,255,.06); --line:rgba(255,255,255,.13);
+  --ink:#FBEFF2; --muted:#B9A3B0; --rose:#FF8FA3; --peach:#FFD3B6; --mint:#8FE3C0;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;color:var(--ink);line-height:1.65;overflow-x:hidden;
+  background:
+   radial-gradient(620px 420px at 85% -4%,rgba(255,143,163,.28),transparent),
+   radial-gradient(520px 420px at -5% 45%,rgba(143,227,192,.13),transparent),
+   radial-gradient(520px 380px at 100% 85%,rgba(255,211,182,.12),transparent),
+   var(--bg)}
+h1,h2,h3{font-family:'Syne','Segoe UI',sans-serif;line-height:1.08;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+
+/* Nav melayang */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:20;display:flex;gap:6px;padding:6px;
+  background:rgba(22,14,27,.88);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:999px}
+nav a{text-decoration:none;color:var(--muted);padding:7px 16px;border-radius:999px;font-size:.92rem;transition:.2s}
+nav a:hover{background:var(--rose);color:#2a1020}
+
+/* Hero */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:110px 0 70px}
+.avatar{position:relative;width:min(58vw,250px);aspect-ratio:1;margin:0 auto 62px}
+.avatar .photo{position:relative;width:100%;height:100%;border-radius:50%;padding:9px;
+  background:linear-gradient(160deg,#FFE9ED,#FFC4D0);
+  box-shadow:0 0 0 4px var(--rose),0 16px 44px rgba(255,143,163,.4);
+  animation:pop .9s cubic-bezier(.2,1.4,.4,1) both}
+.avatar .photo::after{content:"";position:absolute;inset:14px;border-radius:50%;border:2.5px dashed #fff;pointer-events:none}
+.avatar .photo>div{width:100%;height:100%;border-radius:50%;overflow:hidden;background:#2a1a30;display:grid;place-items:center;
+  font-family:'Syne',sans-serif;font-size:3.4rem;font-weight:800;color:var(--rose)}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:50%}
+@keyframes pop{from{transform:scale(.6) rotate(-90deg);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero h1{font-size:clamp(2.6rem,9vw,5.2rem);font-weight:800}
+.role{margin:14px 0 8px;font-size:1.15rem;color:var(--muted);min-height:1.8em}
+.role b{color:var(--peach);font-weight:500;border-right:2px solid var(--rose);padding-right:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{border-color:transparent}}
+.hero p.sub{max-width:48ch;margin:0 auto 28px;color:var(--muted)}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;text-decoration:none;font-weight:500;border:1.5px solid var(--line);background:var(--glass);transition:transform .2s,background .2s}
+.btn.fill{background:var(--rose);border-color:var(--rose);color:#2a1020}
+.btn:hover{transform:translateY(-3px)}
+
+/* Section */
+section{padding:120px 0 80px;min-height:80svh}
+h2{font-size:clamp(2rem,6vw,3.2rem);margin-bottom:10px;text-align:center}
+.lead{color:var(--muted);text-align:center;max-width:50ch;margin:0 auto 48px}
+
+/* Perjalanan: tab + kartu besar */
+.journey{max-width:640px;margin:0 auto}
+.stepper{position:relative;display:grid;grid-template-columns:repeat(4,1fr);margin-bottom:22px}
+.track{position:absolute;left:12.5%;right:12.5%;top:20px;height:4px;border-radius:4px;background:var(--line)}
+.track i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--rose),var(--peach));transition:width .45s}
+.st{all:unset;box-sizing:border-box;cursor:pointer;position:relative;text-align:center;padding-top:50px;color:var(--muted);font-weight:500;transition:color .2s}
+.st::before{content:"";position:absolute;top:10px;left:50%;width:24px;height:24px;margin-left:-12px;border-radius:50%;background:var(--bg);border:3px solid var(--line);transition:.3s}
+.st.done::before{border-color:var(--rose);background:var(--rose)}
+.st.now{color:var(--ink)}
+.st.now::before{border-color:var(--peach);background:var(--rose);box-shadow:0 0 0 7px rgba(255,143,163,.22);transform:scale(1.1)}
+.st:focus-visible{outline:3px solid var(--mint);outline-offset:2px;border-radius:10px}
+.stage{position:relative;overflow:hidden;padding:34px 28px 24px;border-radius:36px;min-height:340px;display:flex;flex-direction:column;
+  background:linear-gradient(155deg,rgba(255,143,163,.2),rgba(255,255,255,.04) 55%,rgba(143,227,192,.1));
+  border:1px solid rgba(255,143,163,.45);touch-action:pan-y}
+.stage .big{position:absolute;right:-8px;top:-22px;font-family:'Syne',sans-serif;font-weight:800;font-size:9.5rem;line-height:1;
+  color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.14);pointer-events:none;user-select:none}
+.stage>*:not(.big){position:relative}
+.badge{align-self:flex-start;padding:4px 14px;border-radius:999px;background:var(--peach);color:#2a1020;font-size:.82rem;font-weight:500}
+.stage h3{font-size:clamp(1.8rem,6vw,2.4rem);margin:16px 0 4px}
+.lvl{color:var(--peach)}
+.desc{color:var(--muted);margin-top:14px;max-width:46ch}
+.foot{margin-top:auto;padding-top:24px;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:.9rem}
+.nav{all:unset;box-sizing:border-box;cursor:pointer;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line);background:var(--glass);font-size:1.2rem;transition:.2s}
+.nav:hover{background:var(--rose);color:#2a1020;border-color:var(--rose)}
+.nav:focus-visible{outline:3px solid var(--mint)}
+.nav[disabled]{opacity:.3;pointer-events:none}
+.stage.go-next .in{animation:inR .4s both}
+.stage.go-prev .in{animation:inL .4s both}
+@keyframes inR{from{opacity:0;transform:translateX(34px)}}
+@keyframes inL{from{opacity:0;transform:translateX(-34px)}}
+
+/* Belajar */
+.learn{all:unset;box-sizing:border-box;cursor:pointer;display:block;max-width:440px;margin:0 auto;text-align:center;padding:30px 26px;
+  border-radius:34px;border:2px dashed var(--rose);background:linear-gradient(160deg,rgba(255,143,163,.18),rgba(255,211,182,.08));transition:transform .25s}
+.learn:hover{transform:rotate(-1.5deg) translateY(-3px)}
+.learn:focus-visible{outline:3px solid var(--mint);outline-offset:4px}
+.learn .emo{display:block;font-size:2.6rem;line-height:1.2;transition:transform .4s}
+.learn.open .emo{transform:rotate(25deg) scale(1.15)}
+.learn b{display:block;font-family:'Syne',sans-serif;font-size:1.5rem;margin:6px 0 2px}
+.learn small{display:block;color:var(--peach)}
+.learn em{display:block;font-style:normal;color:var(--muted);max-height:0;overflow:hidden;opacity:0;transition:max-height .4s,opacity .4s,margin .4s}
+.learn.open em{max-height:200px;opacity:1;margin-top:14px}
+
+footer{text-align:center;color:var(--muted);padding:26px 0 44px;font-size:.9rem}
+
+@media(max-width:760px){
+  nav a{padding:7px 11px;font-size:.85rem}
+  .stage{padding:28px 22px 20px}
+  .stage .big{font-size:7.5rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* Partikel imut */
+.spark{position:absolute;font-style:normal;line-height:1;pointer-events:none;animation:float 3.6s ease-in-out infinite}
+.p1{top:-14px;left:12%;font-size:1.6rem;color:var(--rose)}
+.p2{top:6%;right:-12px;font-size:1.7rem;color:var(--peach);animation-delay:-1.2s}
+.p3{top:46%;left:-34px;font-size:1.2rem;color:var(--peach);animation-delay:-2.2s}
+.p4{bottom:12%;right:-30px;font-size:1.3rem;color:var(--mint);animation-delay:-.6s}
+.p5{bottom:-12px;left:18%;font-size:1.5rem;color:var(--rose);animation-delay:-1.8s}
+.p6{top:-24px;right:30%;font-size:1.1rem;color:var(--mint);animation-delay:-2.8s}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0) scale(1)}50%{transform:translateY(-10px) rotate(12deg) scale(1.15)}}
+
+/* Halaman */
+.page{display:none}
+.page.on{display:block;animation:pageIn .45s both}
+.hero.page.on{display:grid}
+@keyframes pageIn{from{opacity:0;transform:translateY(16px)}}
+nav a.on{background:var(--rose);color:#2a1020}
+@media(min-width:900px){
+  .avatar{width:290px}
+  .hero h1{font-size:5.4rem}
+  .hero p.sub{font-size:1.1rem}
+}
